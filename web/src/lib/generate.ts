@@ -30,6 +30,8 @@ function splitSentences(text: string): string[] {
   for (const block of text.split(/\n+/)) {
     const line = block.replace(/^[\s•\-*–\d.)]+(?=\S)/, "").trim();
     if (!line) continue;
+    // A short line with no closing punctuation is a heading or label, not a fact.
+    if (!/[.!?]["”)]?$/.test(line) && line.split(/\s+/).length < 14) continue;
     for (const s of line.split(/(?<=[.!?])\s+(?=[A-Z0-9"“(])/)) {
       const t = s.trim();
       const words = t.split(/\s+/).length;

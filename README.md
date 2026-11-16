@@ -22,6 +22,10 @@ brings them back at the right time.
 
 ---
 
+| Flip a card, then tell it how you did | Your decks, today's reviews and weekly uploads |
+|---|---|
+| ![A flashcard showing its answer with "Didn't know" and "Knew it" buttons](docs/flashcard.jpg) | ![The My decks screen with the review counter and usage meter](docs/decks.jpg) |
+
 ## Why StudySnap?
 
 Every student knows the feeling: the exam is in three days, the lecture slides are 60 pages long, and
