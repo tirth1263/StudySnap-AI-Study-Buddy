@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf6ec;
+  --color-paper-deep: #f1ead9;
+  --color-surface: #fffdf8;
+  --color-ink: #1c1a16;
+  --color-ink-soft: #5f594d;
+  --color-line: #ddd4bf;
+  --color-marker: #ffe04a;
+  --color-marker-soft: #fff3b0;
+  --color-good: #1f7a4d;
+  --color-good-soft: #dcf1e4;
+  --color-bad: #b9432f;
+  --color-bad-soft: #f8dfd9;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-face), ui-serif, Georgia, serif;
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-image: radial-gradient(circle at 1px 1px, rgb(28 26 22 / 0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-ink px-5 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-ink text-paper shadow-[3px_3px_0_0_var(--color-marker)] hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_var(--color-marker)];
+  }
+  .btn-ghost {
+    @apply bg-surface text-ink hover:bg-marker-soft;
+  }
+  .btn-marker {
+    @apply bg-marker text-ink hover:-translate-y-0.5;
+  }
+  .panel {
+    @apply rounded-2xl border border-line bg-surface p-6 shadow-[0_1px_0_0_var(--color-line)];
+  }
+  .field {
+    @apply w-full rounded-xl border border-line bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-soft/70 focus:border-ink focus:outline-none;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft;
+  }
+  .highlight {
+    background: linear-gradient(transparent 55%, var(--color-marker) 55%);
+    padding: 0 0.15em;
+  }
+}
+
+/* Flashcard flip */
+.flip {
+  perspective: 1400px;
+}
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner,
+  .btn {
+    transition: none;
+  }
+}

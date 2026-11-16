@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "StudySnap",
+    "slug": "studysnap",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.studysnap.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#faf6ec",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.studysnap.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "StudySnap uses the camera so you can photograph your notes.",
+          "photosPermission": "StudySnap reads the photos you choose so it can turn your notes into flashcards."
+        }
+      ],
+      "expo-web-browser"
+    ],
+    "scheme": "studysnap"
+  }
+}
